@@ -1,8 +1,8 @@
 ---
-const { title, url } = Astro.props;
+const { title, url, content } = Astro.props;
 ---
 <div class="p-10 gap-10 flex justify-center">
-    <div class="rounded-xl bg-linear-to-r from-white to-gray-200 p-3 sm:gap-2 md:gap-5 md:flex md:max-w-225">
+    <div class="rounded-xl bg-linear-to-r from-white to-gray-200 p-3 sm:gap-2 md:gap-0 md:flex md:max-w-225">
         <div class="shrink-0">
             <img 
                 class="h-0 aspect-1/1 sm:h-75 sm:w-full sm:object-cover md:h-full md:w-75" 
@@ -10,20 +10,13 @@ const { title, url } = Astro.props;
             />
         </div>
         <div class="p-3">
-            <p class="font-bold text-lg">{title}</p>
-            <p class="font-thin text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            <p class="font-thin text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            <p class="font-thin text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            <p class="font-thin text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            <p class="font-bold text-xl">{title}</p>
+            <p class="font-thin text-lg">{content}</p>
         </div>
     </div>
     <div class="hidden xl:block xl:h-auto place-content-center">
         <div class="rounded-xl bg-linear-to-r from-blue-400 to-sky-500 place-content-center aspect-3/4 w-60 p-8">
             <div class="rounded-full bg-linear-to-r to-sky-400 from-indigo-400 aspect-1/1 w-45">
-                <!-- <img 
-                class="aspect-1/1 w-45 justify-center" 
-                src="https://picsum.photos/200"
-                /> -->
             </div>
         </div>
     </div>
