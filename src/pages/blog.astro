@@ -1,0 +1,17 @@
+---
+import "../styles/global.css";
+import { getCollection} from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectWindow from "../components/ProjectWindow.astro";
+const allProjects = await getCollection("project_content")
+---
+<BaseLayout pageTitle="Blog">
+    <ul>
+		{
+			allProjects.map((project_content) => (
+				<ProjectWindow title={project_content.data.title} url={project_content.data.image.url} content={project_content.data.content}/>
+			))
+			
+		}
+	</ul>
+</BaseLayout>

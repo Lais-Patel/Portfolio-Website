@@ -1,29 +1,24 @@
 ---
 import "../styles/global.css";
 import { getCollection} from "astro:content";
-import ProjectWindow from "../components/ProjectWindow.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 const allProjects = await getCollection("project_content")
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Lais</title>
-	</head>
-	<body class="bg-linear-to-r from-blue-300 via-sky-400 to-cyan-600/75">
-		<div class="">
-			<p class="text-[50vw] align-middle">LAIS</p>
+<div class="w-screen h-screen flex justify-center items-center">
+		<div class="rounded-xl w-[97vw] h-[97vw] gap-5 flex justify-center items-center flex-col md:flex-row">
+			<div class="">
+				<div class="rounded-full bg-[#4A474C] aspect-1/1 w-40 p-1 justify-center items-center md:w-100 md:p-5">
+					<img 
+					class="rounded-full aspect-1/1 w-full object-cover
+					transform transition duration-700 hover:scale-111 hover:rotate-z-360" 
+					src="/lais.jpg"
+					alt="Lais Patel"
+					/>
+				</div>
+			</div>
+			<p class="text-[8vw] font-semibold flex text-center">Lais Patel</p>
 		</div>
-		<ul>
-		{
-			allProjects.map((project_content) => (
-				<ProjectWindow title={project_content.data.title} url={project_content.data.image.url} content={project_content.data.content}/>
-			))
-			
-		}
-		</ul>
-	</body>
-</html>
+</div>
+<BaseLayout pageTitle="Portfolio">
+</BaseLayout>
