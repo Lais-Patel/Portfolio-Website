@@ -13,12 +13,12 @@ import LinkButton from "../components/LinkButton.astro";
   <body class="bg-linear-to-r from-blue-300 via-sky-400 to-cyan-600">
   </body>
   <header class="sticky top-0 p-2 flex justify-center items-center">
-    <div class="rounded-2xl w-fit bg-blue-100 text-white p-4 flex gap-5">
+    <div class="rounded-2xl w-screen md:w-fit bg-blue-100 text-white p-4 flex gap-5 flex-col md:flex-row">
       <LinkButton title="Home" link="/"></LinkButton>
       <LinkButton title="About Me" link="/about"></LinkButton>
       <LinkButton title="Projects" link="/projects"></LinkButton>
       <LinkButton title="Blog" link="/blog"></LinkButton>
-      <div class="rounded-4xl w-2 h-fill p-2 bg-blue-300/75"></div>
+      <div class="rounded-4xl w-fill md:w-2 h-2 md:h-fill p-2 bg-blue-300/75"></div>
       <LinkButton title="Github" link="https://github.com/Lais-Patel"></LinkButton>
       <LinkButton title="LinkedIn" link="https://www.linkedin.com/in/laisp/"></LinkButton>
     </div>
