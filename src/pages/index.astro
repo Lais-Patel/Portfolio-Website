@@ -2,23 +2,26 @@
 import "../styles/global.css";
 import { getCollection} from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from 'astro:assets';
+
 const allProjects = await getCollection("project_content")
 ---
 
-<div class="w-screen h-screen flex justify-center items-center">
-		<div class="rounded-xl w-[97vw] h-[97vw] gap-5 flex justify-center items-center flex-col md:flex-row">
+<BaseLayout pageTitle="Portfolio">
+	<div class="flex justify-center items-center">
+		<div class="rounded-xl gap-5 flex justify-center items-center flex-col md:flex-row">
 			<div class="">
 				<div class="rounded-full bg-[#4A474C] aspect-1/1 w-40 p-1 justify-center items-center md:w-100 md:p-5">
-					<img 
-					class="rounded-full aspect-1/1 w-full object-cover
-					transform transition duration-700 hover:scale-111 hover:rotate-z-360" 
+					<Image 
 					src="/lais.jpg"
+					width="400" height="400" 
+					class="rounded-full aspect-1/1 w-full object-cover transform transition duration-700 hover:scale-111 hover:rotate-z-360"
 					alt="Lais Patel"
+					loading="eager"
 					/>
 				</div>
 			</div>
 			<p class="text-[8vw] font-semibold flex text-center select-none">Lais Patel</p>
 		</div>
-</div>
-<BaseLayout pageTitle="Portfolio">
+	</div>
 </BaseLayout>

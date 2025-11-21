@@ -1,6 +1,7 @@
 ---
 const { pageTitle } = Astro.props;
 import LinkButton from "../components/LinkButton.astro";
+import SocialButton from "../components/SocialButton.astro";
 ---
 <html lang="en">
 	<head>
@@ -10,18 +11,20 @@ import LinkButton from "../components/LinkButton.astro";
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 	</head>
-  <body class="bg-linear-to-r from-blue-300 via-sky-400 to-cyan-600">
+  <body>
+    <header class="md:sticky top-0 p-2 flex justify-center items-center">
+      <div class="rounded-2xl w-screen md:w-fit bg-blue-100 text-white p-4 flex gap-5 flex-col md:flex-row">
+        <LinkButton title="Home" link="/"></LinkButton>
+        <LinkButton title="About Me" link="/about"></LinkButton>
+        <LinkButton title="Projects" link="/projects"></LinkButton>
+        <div class="md:w-0.5 md:h-10 w-full h-0.5 rounded-full bg-blue-300/75"></div>
+        <div class="flex gap-5 flex-wrap">
+          <SocialButton title="Github" link="https://github.com/Lais-Patel" icon="/github.svg"></SocialButton>
+          <SocialButton title="LinkedIn" link="https://www.linkedin.com/in/laisp/" icon="/linkedin.svg"></SocialButton>
+        </div>
+      </div>
+    </header>
+
+    <slot />
   </body>
-  <header class="md:sticky top-0 p-2 flex justify-center items-center">
-    <div class="rounded-2xl w-screen md:w-fit bg-blue-100 text-white p-4 flex gap-5 flex-col md:flex-row">
-      <LinkButton title="Home" link="/"></LinkButton>
-      <LinkButton title="About Me" link="/about"></LinkButton>
-      <LinkButton title="Projects" link="/projects"></LinkButton>
-      <LinkButton title="Blog" link="/blog"></LinkButton>
-      <div class="rounded-4xl w-fill md:h-fill p-2 bg-blue-300/75"></div>
-      <LinkButton title="Github" link="https://github.com/Lais-Patel"></LinkButton>
-      <LinkButton title="LinkedIn" link="https://www.linkedin.com/in/laisp/"></LinkButton>
-    </div>
-  </header>
-  <slot />
 </html>

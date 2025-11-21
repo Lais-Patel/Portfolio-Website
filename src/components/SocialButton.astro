@@ -1,0 +1,20 @@
+---
+import { Image } from "astro:assets";
+const { title, link, icon } = Astro.props;
+---
+
+<a 
+    href={link} 
+    class="rounded-full border border-black bg-blue-300/75 size-10 flex items-center justify-center"
+    target=”_blank”
+>
+    <Image
+        width="20"
+        height="20"
+        src={icon} 
+        alt={title}
+    >
+    <span class="sr-only">
+        {title}
+    </span>
+</a>
