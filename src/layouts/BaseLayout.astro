@@ -1,6 +1,5 @@
 ---
 const { pageTitle } = Astro.props;
-import Navbar from "../components/Navbar.astro";
 ---
 <html lang="en">
 	<head>
@@ -11,7 +10,6 @@ import Navbar from "../components/Navbar.astro";
 		<title>{pageTitle}</title>
 	</head>
   <body>
-    <Navbar></Navbar>
     <slot />
   </body>
 </html>
