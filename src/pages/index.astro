@@ -2,23 +2,91 @@
 import "../styles/global.css";
 import { getCollection} from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SocialButton from "../components/SocialButton.astro";
+import { Image } from 'astro:assets';
+
 const allProjects = await getCollection("project_content")
 ---
 
-<div class="w-screen h-screen flex justify-center items-center">
-		<div class="rounded-xl w-[97vw] h-[97vw] gap-5 flex justify-center items-center flex-col md:flex-row">
-			<div class="">
-				<div class="rounded-full bg-[#4A474C] aspect-1/1 w-40 p-1 justify-center items-center md:w-100 md:p-5">
-					<img 
-					class="rounded-full aspect-1/1 w-full object-cover
-					transform transition duration-700 hover:scale-111 hover:rotate-z-360" 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<BaseLayout pageTitle="Lais Patel">
+	<div class="parallax">
+        <section class="parallax__header">
+            <div class="parallax__visuals">
+            <div class="parallax__black-line-overflow"></div>
+            <div data-parallax-layers class="parallax__layers">
+				<div data-parallax-layer="1" class="bg-blue-400 w-full h-full"></div>
+                <img src="/parallax/layer_1.webp" loading="eager" width="800" data-parallax-layer="2" alt="" class="parallax__layer-img">
+				<img src="/parallax/layer_2.webp" loading="eager" width="800" data-parallax-layer="3" alt="" class="parallax__layer-img">
+                <div data-parallax-layer="3" class="parallax__layer-title">
+                <h2 class="parallax__title">Lais Patel</h2>
+                </div>
+                <img src="/parallax/layer_3.webp" loading="eager" width="800" data-parallax-layer="4" alt="" class="parallax__layer-img">
+            </div>
+            <div class="parallax__fade"></div>
+            </div>
+        </section>
+        <section class="parallax__content">
+			<div class="w-full max-w-xl flex flex-col items-center p-4">
+				<div class="rounded-full bg-gray-700 aspect-1/1 w-1/3 flex justify-center items-center">
+					<Image 
 					src="/lais.jpg"
+					width="400" height="400" 
+					class="rounded-full aspect-1/1 w-9/10 object-cover transform transition duration-700 hover:scale-111 hover:rotate-z-360"
 					alt="Lais Patel"
+					loading="eager"
 					/>
 				</div>
+				<p class="text-gray-300 font-bold text-center p-5">Second Year Computer Science Student with a passion for marketing and coding!</p>
+				<div class="w-full h-0.5 rounded-full bg-gray-700"></div>
+				<div class="flex justify-center items-center gap-5 flex-wrap p-4">
+					<SocialButton title="Github" link="https://github.com/Lais-Patel" icon="/github.svg"></SocialButton>
+					<SocialButton title="LinkedIn" link="https://www.linkedin.com/in/laisp/" icon="/linkedin.svg"></SocialButton>
+					<SocialButton title="Email" link="mailto:laispatel.2022@gmail.com" icon="/email.svg"></SocialButton>
+				</div>
 			</div>
-			<p class="text-[8vw] font-semibold flex text-center select-none">Lais Patel</p>
-		</div>
-</div>
-<BaseLayout pageTitle="Portfolio">
+		</section>
+    </div>
 </BaseLayout>
+
+<script>
+	import {gsap, ScrollTrigger} from "gsap/all";
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	function initParallaxLayers() {  
+	document.querySelectorAll('[data-parallax-layers]').forEach((triggerElement) => {
+		let tl = gsap.timeline({
+		scrollTrigger: {
+			trigger: triggerElement,
+			start: "0% 0%",
+			end: "100% 0%",
+			scrub: 0
+		}
+		});
+		const layers = [
+		{ layer: "1", yPercent: 66 },
+		{ layer: "2", yPercent: 33 },
+		{ layer: "3", yPercent: 20 },
+		{ layer: "4", yPercent: 10 }
+		];
+		layers.forEach((layerObj, idx) => {
+		tl.to(
+			triggerElement.querySelectorAll(`[data-parallax-layer="${layerObj.layer}"]`),
+			{
+			yPercent: layerObj.yPercent,
+			ease: "none"
+			},
+			idx === 0 ? undefined : "<"
+		);
+		});
+	});
+	}
+
+	// Initialize Parallax Layers
+	document.addEventListener('DOMContentLoaded', () => {
+	initParallaxLayers();
+	});
+</script>

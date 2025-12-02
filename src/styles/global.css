@@ -1,2 +1,10 @@
 @import "tailwindcss";
 @import "tailwindcss/preflight.css" layer(base);
+@import "./parallax.css";
+
+body {
+    position: relative;
+    min-height: 100svh;
+    /* background-image: linear-gradient(0deg, var(--color-black) 0%, var(--color-blue-300) 50%, var(--color-blue-300) 100%); */
+    background: black;
+}
