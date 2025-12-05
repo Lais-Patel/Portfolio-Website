@@ -1,12 +1,12 @@
 ---
 import { Image } from "astro:assets";
-const { title, link, icon } = Astro.props;
+const { title, link, icon, target} = Astro.props;
 ---
 
 <a 
     href={link} 
     class="rounded-full border border-black bg-gray-700 size-10 flex items-center justify-center transform transition duration-700 hover:bg-gray-500 hover:scale-110 hover:rotate-z-360"
-    target=”_blank”
+    target={target}
 >
     <Image
         width="20"
