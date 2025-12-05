@@ -17,12 +17,12 @@ const allProjects = await getCollection("project_content")
             <div class="parallax__visuals">
             <div class="parallax__black-line-overflow"></div>
             <div data-parallax-layers class="parallax__layers">
-				<div data-parallax-layer="1" class="bg-blue-400 w-full h-full"></div>
+				<div data-parallax-layer="1" class="bg-[#679DE2] w-full h-full"></div>
                 <img src="/parallax/layer_1.webp" loading="eager" width="800" data-parallax-layer="2" alt="" class="parallax__layer-img">
-				<img src="/parallax/layer_2.webp" loading="eager" width="800" data-parallax-layer="3" alt="" class="parallax__layer-img">
-                <div data-parallax-layer="3" class="parallax__layer-title">
-                <h2 class="parallax__title">Lais Patel</h2>
+				<div data-parallax-layer="3" class="parallax__layer-title">
+                <h2 class="parallax__title font-wind text-white text-shadow-lg/50">Lais Patel</h2>
                 </div>
+				<img src="/parallax/layer_2.webp" loading="eager" width="800" data-parallax-layer="3" alt="" class="parallax__layer-img">
                 <img src="/parallax/layer_3.webp" loading="eager" width="800" data-parallax-layer="4" alt="" class="parallax__layer-img">
             </div>
             <div class="parallax__fade"></div>
@@ -39,7 +39,10 @@ const allProjects = await getCollection("project_content")
 					loading="eager"
 					/>
 				</div>
-				<p class="text-gray-300 font-bold text-center p-5">Second Year Computer Science Student with a passion for marketing and coding!</p>
+				<div class="text-gray-300 font-thin text-center p-5">
+					<p>Studying Computer Science in my second year at a top 25 University</p>
+					<p>Has a passion for coding, data analysis, and marketing!</p>
+				</div>
 				<div class="w-full h-0.5 rounded-full bg-gray-700"></div>
 				<div class="flex justify-center items-center gap-5 flex-wrap p-4">
 					<SocialButton title="Github" link="https://github.com/Lais-Patel" icon="/github.svg"></SocialButton>
